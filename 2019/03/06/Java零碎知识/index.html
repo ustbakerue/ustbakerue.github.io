@@ -272,7 +272,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">836</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">1.1k</span>阅读时长: <span class="post-count reading-time">4 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -513,6 +513,15 @@ height:50vh;
 <p>参数的命名规范和方法的命名规范相同，而且为了避免阅读程序时造成迷惑，应尽量保证参数名称为一个单词的情况下使参数的命名尽可能明确。</p>
 </li>
 </ul>
+<h1 id="instanceof-操作符"><a href="#instanceof-操作符" class="headerlink" title="instanceof 操作符"></a>instanceof 操作符</h1><p>instanceof是一个二元操作符。</p>
+<p>其作用是测试其左边的对象是否是它右边的类的实例，返回boolean的数据类型。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Vector;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestInstanceof</span> </span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">        Object testObject = <span class="keyword">new</span> ArrayList();</span><br><span class="line">        displayObjectClass(testObject);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">displayObjectClass</span><span class="params">(Object o)</span> </span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (o <span class="keyword">instanceof</span> Vector)</span><br><span class="line">        System.out.println(<span class="string">"对象是 java.util.Vector 类的实例"</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (o <span class="keyword">instanceof</span> ArrayList)</span><br><span class="line">            System.out.println(<span class="string">"对象是 java.util.ArrayList 类的实例"</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            System.out.println(<span class="string">"对象是 "</span> + o.getClass() + <span class="string">" 类的实例"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上代码运行输出结果是</p>
+<blockquote>
+<p>对象是java.util.ArrayList类的实例</p>
+</blockquote>
+<h1 id="Hashmap-amp-Hashtable"><a href="#Hashmap-amp-Hashtable" class="headerlink" title="Hashmap  &amp; Hashtable"></a>Hashmap  &amp; Hashtable</h1><p>HashTable是线程安全的，HashMap不是线程安全的，但在单线程程序中的性能比HashTable要高。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </p>
+<h1 id="StringBuffer-amp-StringBuilder"><a href="#StringBuffer-amp-StringBuilder" class="headerlink" title="StringBuffer &amp; StringBuilder"></a>StringBuffer &amp; StringBuilder</h1><p>StringBuffer支持并发操作，线性安全，适合多线程中使用。StringBuilder不支持并发操作， 线性不安全，不适合多线程中使用。StringBuilder不是线程安全的，但是在单线程中的性能比StringBuffer高。</p>
 
     </article>
     <!-- license  -->
@@ -520,6 +529,11 @@ height:50vh;
     <!-- paginator  -->
     <ul class="post-paginator">
         <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href="/2019/03/07/String相关知识/" title="String相关知识">
+                    <div class="nextTitle">String相关知识</div>
+                </a>
             
         </li>
         <li class="previous">
@@ -645,7 +659,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SuppressWarnings"><span class="toc-number">1.</span> <span class="toc-text">SuppressWarnings()</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#获取毫秒数"><span class="toc-number">2.</span> <span class="toc-text">获取毫秒数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#int型可存储的范围"><span class="toc-number">3.</span> <span class="toc-text">int型可存储的范围</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#获取随机数"><span class="toc-number">4.</span> <span class="toc-text">获取随机数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#运算符优先级"><span class="toc-number">5.</span> <span class="toc-text">运算符优先级</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Java命名规则"><span class="toc-number">6.</span> <span class="toc-text">Java命名规则</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SuppressWarnings"><span class="toc-number">1.</span> <span class="toc-text">SuppressWarnings()</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#获取毫秒数"><span class="toc-number">2.</span> <span class="toc-text">获取毫秒数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#int型可存储的范围"><span class="toc-number">3.</span> <span class="toc-text">int型可存储的范围</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#获取随机数"><span class="toc-number">4.</span> <span class="toc-text">获取随机数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#运算符优先级"><span class="toc-number">5.</span> <span class="toc-text">运算符优先级</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Java命名规则"><span class="toc-number">6.</span> <span class="toc-text">Java命名规则</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#instanceof-操作符"><span class="toc-number">7.</span> <span class="toc-text">instanceof 操作符</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hashmap-amp-Hashtable"><span class="toc-number">8.</span> <span class="toc-text">Hashmap  &amp; Hashtable</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#StringBuffer-amp-StringBuilder"><span class="toc-number">9.</span> <span class="toc-text">StringBuffer &amp; StringBuilder</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -683,9 +697,16 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 3
+        Total : 4
         </div>
         <!-- search  -->
         
@@ -698,6 +719,11 @@ top:50vh;
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/07</span><a class="archive-post-title" href="/2019/03/07/String相关知识/">String相关知识</a>
+        </li>
     
     
         <li class="archive-post-item">

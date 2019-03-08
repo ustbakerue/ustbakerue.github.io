@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>String相关知识 · NORSHOGUN&#39;s BOOKRACK</title>
+    <title>NORSHOGUN&#39;s BOOKRACK</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,23 +203,12 @@
 </head>
 
     
-        <body class="post-body">
-    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
-    
-    <div class="banner">
-            <div class="blog-title">
-                <a href="/">NORSHOGUN&#39;s BOOKRACK.</a>
-            </div>
-            <div class="post-title">
-                <a href="#" class="post-name">String相关知识</a>
-            </div>
-    </div>
     
     <a class="home-link" href="/">NORSHOGUN's BOOKRACK.</a>
 </header>
@@ -231,74 +220,24 @@
 
 
 
-
-height:50vh;
 ">
     
     <!-- 主页  -->
-    
-    
-    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
-            
-            String相关知识
-            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
-            
-            <!-- 404 -->
-            
         </p>
         <!-- 文章页meta -->
-        
-            <div class="post-intros">
-                <!-- 文章页标签  -->
-                
-                    <div class="post-intro-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="学习笔记">学习笔记</a>
-    
-</div>
-                
-                
-                    <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">722</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
-                    </div>
-                
-                <div class="post-intro-meta">
-                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/03/07</span>
-                    
-                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
-                        <span class="iconfont-archer">&#xe602;</span>
-                        <span id="busuanzi_value_page_pv"></span>
-                    </span>
-                    
-                    <span class="shareWrapper">
-                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
-                        <span class="shareText">Share</span>
-                        <ul class="shareList">
-                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
-                                <div class="share-qrcode"></div>
-                            </li>
-                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
-                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
-                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
-                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
-                        </ul>
-                    </span>
-                </div>
-            </div>
         
     </div>
 </div>
@@ -399,171 +338,46 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main post-page">
-    <article class="article-entry">
-        <h1 id="String-类基本介绍"><a href="#String-类基本介绍" class="headerlink" title="String 类基本介绍"></a>String 类基本介绍</h1><p>String是Java库中一个预留的类，它不是基本类型，而是<strong>引用类型</strong>（referencen type）。</p>
-<blockquote>
-<p>把使用引用类型声明的变量称为引用变量</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*String基本声明方式*/</span></span><br><span class="line">String string = <span class="string">"Hello!"</span>;</span><br></pre></td></tr></table></figure>
-<h1 id="String-基本方法"><a href="#String-基本方法" class="headerlink" title="String 基本方法"></a>String 基本方法</h1><table>
-<thead>
-<tr>
-<th>方法</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>length（）</td>
-<td>返回字符数</td>
-</tr>
-<tr>
-<td>charAt（index）</td>
-<td>返回字符串s中指定位置的字符</td>
-</tr>
-<tr>
-<td>concat（s1）</td>
-<td>将本字符串和字符串s1连接，返回一个新字符串</td>
-</tr>
-<tr>
-<td>toUpperCase（）</td>
-<td>返回一个新字符串，其中所有的字母大写</td>
-</tr>
-<tr>
-<td>toLowerCase（）</td>
-<td>返回以新字符串，其中所有的字母小写</td>
-</tr>
-<tr>
-<td>trim（）</td>
-<td>返回一个新字符串，去掉两边的空白字符</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>除了使用s1.concat（s2）方法连接字符，也可以直接使用“+”连接字符串</p>
-</blockquote>
-<blockquote>
-<p>空白字符串指的是’’、’\t’、’\f’、’\r’、’\n’</p>
-</blockquote>
-<h1 id="读取字符串"><a href="#读取字符串" class="headerlink" title="读取字符串"></a>读取字符串</h1><ul>
-<li>next（）方法获取以<em>空白字符</em>结束的字符串</li>
-<li><p>nextLine（）方法读取以按下<em>回车键</em>为结束标志的字符串</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> class <span class="title">InString</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        scanner in = <span class="keyword">new</span> scanner(System.in);</span><br><span class="line">        String string1 = in.next();	<span class="comment">//next()方法获取字符串</span></span><br><span class="line">        String string2 = in.nextLine();	<span class="comment">//next（）方法获取整行	</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h1 id="读取字符"><a href="#读取字符" class="headerlink" title="读取字符"></a>读取字符</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> class <span class="title">InString</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        scanner in = <span class="keyword">new</span> scanner(System.in);</span><br><span class="line">        String string = in.next();	<span class="comment">//next()方法获取字符串</span></span><br><span class="line">        <span class="keyword">char</span> ch = string.charAt(<span class="number">0</span>);	<span class="comment">//返回码点0处的字符       	</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="String比较"><a href="#String比较" class="headerlink" title="String比较"></a>String比较</h1><table>
-<thead>
-<tr>
-<th style="text-align:center">方法</th>
-<th style="text-align:center">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">equals(s1)</td>
-<td style="text-align:center">字符串相等，返回true</td>
-</tr>
-<tr>
-<td style="text-align:center">equalsIgnoreCase(s1)</td>
-<td style="text-align:center">不区分大小写的比较</td>
-</tr>
-<tr>
-<td style="text-align:center">compareTo(s1)</td>
-<td style="text-align:center">返回0，正数，负数的比较结果</td>
-</tr>
-<tr>
-<td style="text-align:center">starsWith(prefix)</td>
-<td style="text-align:center">判断特定前缀</td>
-</tr>
-<tr>
-<td style="text-align:center">endsWith(suffix)</td>
-<td style="text-align:center">判断特定后缀</td>
-</tr>
-<tr>
-<td style="text-align:center">contains(s1)</td>
-<td style="text-align:center">如果s1是该字符串的子字符串，返回true</td>
-</tr>
-</tbody>
-</table>
-<h1 id="获取子串"><a href="#获取子串" class="headerlink" title="获取子串"></a>获取子串</h1><table>
-<thead>
-<tr>
-<th>方法</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>substring(beginIndex)</td>
-<td>返回从beginindex到字符串结尾的子串</td>
-</tr>
-<tr>
-<td>substring(beginIndex,endIndex)</td>
-<td>返回从beginIndex到endIndex-1的子串</td>
-</tr>
-<tr>
-<td>indexOf(ch)</td>
-<td>返回字符串中出现的第一个ch的下标，如果没有返回-1</td>
-</tr>
-<tr>
-<td>indexOf(s)</td>
-<td>返回字符串中出现的第一个s的下标，如果没有返回-1</td>
-</tr>
-<tr>
-<td>indexOf(s,fromIndex)</td>
-<td>返回字符串中fromIndex之后出现的第一个s的下标，如果没有返回-1</td>
-</tr>
-<tr>
-<td>lastIndexOf(ch)</td>
-<td>返回字符串中出现的最后一个ch的下标，如果没有，返回-1</td>
-</tr>
-<tr>
-<td>lastIndexOf(ch,fromIndex)</td>
-<td>返回字符串中出现的租后一个ch的下标，如果没有则返回-1</td>
-</tr>
-</tbody>
-</table>
-<h1 id="字符串和数字的互相转换"><a href="#字符串和数字的互相转换" class="headerlink" title="字符串和数字的互相转换"></a>字符串和数字的互相转换</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*字符串转换为数值*/</span></span><br><span class="line"><span class="comment">/*转换的方法包含在java.lang包中，因此是自动导入的*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> class <span class="title">StrToNum</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        String intString = <span class="string">"123"</span>;</span><br><span class="line">        String doubleString = <span class="string">"123.45"</span>;</span><br><span class="line">        <span class="keyword">int</span> intValue = Integer.parseInt(intString);	<span class="comment">//转换为Int型</span></span><br><span class="line">        <span class="keyword">double</span> doubleValue = Double.parseDouble(doubleString)	<span class="comment">//转换为Double型</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*数值转换为字符串*/</span></span><br><span class="line"><span class="comment">/*有三种方法*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> class <span class="title">NumToStr</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> num = <span class="number">1</span>;</span><br><span class="line">        Integer x = <span class="number">5</span>;</span><br><span class="line">        String string = num +<span class="string">""</span>;		</span><br><span class="line">        System.out.println(string);	<span class="comment">//方法1</span></span><br><span class="line">        System.out.println(x.toString());	</span><br><span class="line">        System.out.println(Integer.toString(<span class="number">12</span>));	<span class="comment">//方法2</span></span><br><span class="line">        System.out.println(String.valueOf(<span class="number">14</span>));		<span class="comment">//方法3</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <main class="main index-page">
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/03/08/最大公约数和最小公倍数问题/">
+            
+                <span>最大公约数和最小公倍数</span>
+        </a>
+        <div class="abstract-content">
+            最大公约数解决最大公约数问题一般使用辗转相除法(欧几里得算法)。欧几里得算法基于以下的定理：
+1设a、b均为正整数，则gcd(a,b) = gcd(b,a % b)
+容易联想到递归:
 
+递归式： gcd（a，b） = gcd（b，a%b）
+递归边界： gcd（a， 0）= a
+
+由此可以写出下列的代码123456789101112131415161718192021public class MaxCommonDivisor &#123;	public static int gcd (int a ,int b)	&#123;		if(b == 0)			return a;		else 		...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/08</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="coding">coding</a>
+    
+</div>
+            
+        </div>
     </article>
-    <!-- license  -->
     
     <!-- paginator  -->
-    <ul class="post-paginator">
-        <li class="next">
-            
-                <div class="nextSlogan">Next Post</div>
-                <a href="/2019/03/08/最大公约数和最小公倍数问题/" title="最大公约数和最小公倍数">
-                    <div class="nextTitle">最大公约数和最小公倍数</div>
-                </a>
-            
-        </li>
-        <li class="previous">
-            
-                <div class="prevSlogan">Previous Post</div>
-                <a href="/2019/03/06/Java零碎知识/" title="Java零碎知识">
-                    <div class="prevTitle">Java零碎知识</div>
-                </a>
-            
-        </li>
-    </ul>
-    <!-- 评论插件 -->
-    <!-- 来必力City版安装代码 -->
-
-<!-- City版安装代码已完成 -->
     
-    
-    <!-- partial('_partial/comment/changyan') -->
-    <!--PC版-->
-
-
-    
-    
-
-    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -648,24 +462,6 @@ height:50vh;
 </footer>
     </div>
     <!-- toc -->
-    
-    <div class="toc-wrapper" style=
-    
-
-
-
-
-
-
-
-top:50vh;
-
-    >
-        <div class="toc-catalog">
-            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
-        </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#String-类基本介绍"><span class="toc-number">1.</span> <span class="toc-text">String 类基本介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#String-基本方法"><span class="toc-number">2.</span> <span class="toc-text">String 基本方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#读取字符串"><span class="toc-number">3.</span> <span class="toc-text">读取字符串</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#读取字符"><span class="toc-number">4.</span> <span class="toc-text">读取字符</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#String比较"><span class="toc-number">5.</span> <span class="toc-text">String比较</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#获取子串"><span class="toc-number">6.</span> <span class="toc-text">获取子串</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#字符串和数字的互相转换"><span class="toc-number">7.</span> <span class="toc-text">字符串和数字的互相转换</span></a></li></ol>
-    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -843,8 +639,6 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
-    
-        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>

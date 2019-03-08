@@ -346,6 +346,42 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/03/08/最大公约数和最小公倍数问题/">
+            
+                <span>最大公约数和最小公倍数</span>
+        </a>
+        <div class="abstract-content">
+            最大公约数解决最大公约数问题一般使用辗转相除法(欧几里得算法)。欧几里得算法基于以下的定理：
+1设a、b均为正整数，则gcd(a,b) = gcd(b,a % b)
+容易联想到递归:
+
+递归式： gcd（a，b） = gcd（b，a%b）
+递归边界： gcd（a， 0）= a
+
+由此可以写出下列的代码123456789101112131415161718192021public class MaxCommonDivisor &#123;	public static int gcd (int a ,int b)	&#123;		if(b == 0)			return a;		else 		...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/08</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="coding">coding</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/03/07/String相关知识/">
             
                 <span>String相关知识</span>
@@ -565,9 +601,18 @@ int型可存储的范围1-2147483648 ~ 2147483647   //超过这个范围的数�
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 4
+        Total : 5
         </div>
         <!-- search  -->
         
@@ -580,6 +625,11 @@ int型可存储的范围1-2147483648 ~ 2147483647   //超过这个范围的数�
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/08</span><a class="archive-post-title" href="/2019/03/08/最大公约数和最小公倍数问题/">最大公约数和最小公倍数</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -607,6 +657,8 @@ int型可存储的范围1-2147483648 ~ 2147483647   //超过这个范围的数�
     <div class="sidebar-tags-name">
     
         <span class="sidebar-tag-name" data-tags="学习笔记"><span class="iconfont-archer">&#xe606;</span>学习笔记</span>
+    
+        <span class="sidebar-tag-name" data-tags="coding"><span class="iconfont-archer">&#xe606;</span>coding</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -642,6 +694,8 @@ jsonContent:
     <div class="sidebar-categories-name">
     
         <span class="sidebar-category-name" data-categories="Java"><span class="iconfont-archer">&#xe60a;</span>Java</span>
+    
+        <span class="sidebar-category-name" data-categories="Algorithm-DS"><span class="iconfont-archer">&#xe60a;</span>Algorithm-DS</span>
     
         <span class="sidebar-category-name" data-categories="Markdown"><span class="iconfont-archer">&#xe60a;</span>Markdown</span>
     

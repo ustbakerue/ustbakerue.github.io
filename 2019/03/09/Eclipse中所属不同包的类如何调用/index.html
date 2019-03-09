@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>NORSHOGUN&#39;s BOOKRACK</title>
+    <title>Eclipse中所属不同包的类如何调用 · NORSHOGUN&#39;s BOOKRACK</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">NORSHOGUN&#39;s BOOKRACK.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Eclipse中所属不同包的类如何调用</a>
+            </div>
+    </div>
     
     <a class="home-link" href="/">NORSHOGUN's BOOKRACK.</a>
 </header>
@@ -220,24 +231,76 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            Eclipse中所属不同包的类如何调用
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class="post-intro-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="学习笔记">学习笔记</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Eclipse">Eclipse</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">543</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/03/09</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,45 +401,46 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/25/markdown入门笔记/">
-            
-                <span>Markdown 简单入门</span>
-        </a>
-        <div class="abstract-content">
-            什么是MarkdownMarkdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。简单来说Markdown是可以快速排版的文档编辑器，而我们可以使用它来编写自己的技术文档和博客。
-Markdown 基本语法标题123# 一级标题   ## 二级标题### 如此类推
-列表无序列表123* 列表1* 列表2	*列表3
-有序列表12341. 列表12. 列表23. 列表3	1.列表4
-引用1&gt; 引用
-分割线连字符-，星号*，下划线_三个或三个以上均可。123---***___
-代码块及高亮直接在自己的代码上下各添加三个`即可。同时也...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/25</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="学习笔记">学习笔记</a>
-    
-</div>
-            
-        </div>
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>在某一包中定义了一个类，希望在另外一个包中使用它。</p>
+<p>如在包<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">```java</span><br><span class="line">package RandomChar;</span><br><span class="line"></span><br><span class="line">public class RandomCharacter &#123;</span><br><span class="line">	/* Generatse a random character between ch1 and ch2 */</span><br><span class="line">	public static char getRandomCharacter(char ch1, char ch2) &#123;</span><br><span class="line">		if ((ch1 - ch2) &gt; 0) &#123;</span><br><span class="line">			char ch = ch1;</span><br><span class="line">			ch1 = ch2;</span><br><span class="line">			ch2 = ch;</span><br><span class="line">		&#125;</span><br><span class="line">		return (char) (ch1 + Math.random() * (ch2 - ch1 + 1));</span><br><span class="line">	&#125;</span><br><span class="line">	/* Generate a random lowercase letter */</span><br><span class="line">	public static char getRandomLowercase() &#123;</span><br><span class="line">		return (char) (&apos;a&apos; + Math.random() * (&apos;z&apos; - &apos;a&apos; + 1));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/* Generate a random uppercase letter */</span><br><span class="line">	public static char getRandomUppercase() &#123;</span><br><span class="line">		return (char) (&apos;A&apos; + Math.random() * (&apos;Z&apos; - &apos;A&apos; + 1));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/* Generate a random digit character */</span><br><span class="line">	public static char getRandomDigit() &#123;</span><br><span class="line">		return (char) (&apos;0&apos; + Math.random() * (&apos;9&apos; - &apos;0&apos; + 1));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/* Generate a random Character */</span><br><span class="line">	public static char getRandomCharacter() &#123;</span><br><span class="line">		return (char) (&apos;\u0000&apos; + Math.random() * (&apos;\uFFFF&apos; - &apos;\u0000&apos; + 1));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>希望在<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">```java</span><br><span class="line">package Randomtest;</span><br><span class="line"></span><br><span class="line">public class RandomTest</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String [] args)</span><br><span class="line">	&#123;</span><br><span class="line">		char ch = RandomCharacter.getRandomDigit();</span><br><span class="line">		System.out.println(ch);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="法1：直接方法"><a href="#法1：直接方法" class="headerlink" title="法1：直接方法"></a>法1：直接方法</h1><p>直接了当，将两个包复制在同一个工程中，直接在要使用的包中<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">![在这里插入图片描述](https://img-blog.csdnimg.cn/20190309143517707.png)</span><br><span class="line">使用```包名.类名```的方式import即可。</span><br><span class="line">![在这里插入图片描述](https://img-blog.csdnimg.cn/20190309143917566.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L05vZGVtZXI=,size_16,color_FFFFFF,t_70)</span><br><span class="line"># 法2 生成jar包并导入</span><br><span class="line">首先，学习如何由包生成jar包</span><br><span class="line">## 生成jar包</span><br><span class="line">在要生成的包上右键</span><br><span class="line">![在这里插入图片描述](https://img-blog.csdnimg.cn/20190309144202453.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L05vZGVtZXI=,size_16,color_FFFFFF,t_70)</span><br><span class="line">在```java```下选择```JAR file```，随后选择下一步。</span><br><span class="line">![在这里插入图片描述](https://img-blog.csdnimg.cn/20190309144737823.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L05vZGVtZXI=,size_16,color_FFFFFF,t_70)</span><br><span class="line">随后选择要打包的文件和要生成jar包的路径。</span><br><span class="line">![在这里插入图片描述](https://img-blog.csdnimg.cn/20190309150924486.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L05vZGVtZXI=,size_16,color_FFFFFF,t_70)</span><br><span class="line">随后选择```Finish```完成jar包生成。</span><br><span class="line">## 使用jar包</span><br><span class="line">选择要导入的工程，随后右键，选择```Build Path</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://img-blog.csdnimg.cn/20190309151220929.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L05vZGVtZXI=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>选择<figure class="highlight plain"><figcaption><span>Build Path```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">![在这里插入图片描述](https://img-blog.csdnimg.cn/20190309151717594.png)</span><br><span class="line">选择```Libraries ```项下的 ```Add External JARs</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://img-blog.csdnimg.cn/20190309151825145.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L05vZGVtZXI=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>选择要导入的jar包后，选择 <code>Order and Export</code>，给要打的jar包打钩，点击应用即可。<br><img src="https://img-blog.csdnimg.cn/20190309152045673.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L05vZGVtZXI=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>最后使用<code>包名.类名</code>的方式import即可。</p>
+
     </article>
+    <!-- license  -->
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2019/03/08/最大公约数和最小公倍数问题/" title="最大公约数和最小公倍数">
+                    <div class="prevTitle">最大公约数和最小公倍数</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -461,6 +525,24 @@ Markdown 基本语法标题123# 一级标题   ## 二级标题### 如此类推
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#问题描述"><span class="toc-number">1.</span> <span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#法1：直接方法"><span class="toc-number">2.</span> <span class="toc-text">法1：直接方法</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -660,6 +742,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>

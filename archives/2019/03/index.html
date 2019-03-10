@@ -346,26 +346,31 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/03/09/Eclipse中所属不同包的类如何调用/">
+        <a class="abstract-title" href="/2019/03/10/最大公约数和最小公倍数问题/">
             
-                <span>Eclipse中所属不同包的类如何调用</span>
+                <span>最大公约数和最小公倍数问题</span>
         </a>
         <div class="abstract-content">
-            问题描述在某一包中定义了一个类，希望在另外一个包中使用它。
-如在包123456789101112131415161718192021222324252627282930313233```javapackage RandomChar;public class RandomCharacter &#123;	/* Generatse a random character between ch1 and ch2 */	public static char getRandomCharacter(char ch1, char ch2) &#123;		if ((ch1 - ch2) &gt; 0) ...
+            最大公约数解决最大公约数问题一般使用辗转相除法(欧几里得算法)。欧几里得算法基于以下的定理：
+1设a、b均为正整数，则gcd(a,b) = gcd(b,a % b)
+容易联想到递归:
+
+递归式： gcd（a，b） = gcd（b，a%b）
+递归边界： gcd（a， 0）= a
+
+由此可以写出下列的代码
+123456789101112131415161718192021public class MaxCommonDivisor &#123;	public static int gcd (int a ,int b)	&#123;		if(b == 0)			return a;		else 	...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/09</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/10</span>
             </div>
             <!-- tags  -->
             
             <div class="abstract-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="学习笔记">学习笔记</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Eclipse">Eclipse</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="coding">coding</a>
     
 </div>
             
@@ -378,30 +383,27 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/03/08/最大公约数和最小公倍数问题/">
+        <a class="abstract-title" href="/2019/03/10/Eclipse中所属不同包的类如何调用/">
             
-                <span>最大公约数和最小公倍数</span>
+                <span>Eclipse中所属不同包的类如何调用</span>
         </a>
         <div class="abstract-content">
-            最大公约数解决最大公约数问题一般使用辗转相除法(欧几里得算法)。欧几里得算法基于以下的定理：
-1设a、b均为正整数，则gcd(a,b) = gcd(b,a % b)
-容易联想到递归:
-
-递归式： gcd（a，b） = gcd（b，a%b）
-递归边界： gcd（a， 0）= a
-
-由此可以写出下列的代码123456789101112131415161718192021public class MaxCommonDivisor &#123;	public static int gcd (int a ,int b)	&#123;		if(b == 0)			return a;		else 		...
+            问题描述在某一包中定义了一个类，希望在另外一个包中使用它。
+如在包Randomtest定义了一个产生随机字符的类RandomCharacter
+1234567891011121314151617181920212223242526272829303132package RandomChar;public class RandomCharacter &#123;	/* Generatse a random character between ch1 and ch2 */	public static char getRandomCharacter(char ch1, char ch2) &#...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/08</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/10</span>
             </div>
             <!-- tags  -->
             
             <div class="abstract-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="coding">coding</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="学习笔记">学习笔记</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Eclipse">Eclipse</a>
     
 </div>
             
@@ -657,6 +659,10 @@ int型可存储的范围1-2147483648 ~ 2147483647   //超过这个范围的数�
     
     
     
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 6
@@ -675,12 +681,12 @@ int型可存储的范围1-2147483648 ~ 2147483647   //超过这个范围的数�
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/09</span><a class="archive-post-title" href="/2019/03/09/Eclipse中所属不同包的类如何调用/">Eclipse中所属不同包的类如何调用</a>
+            <span class="archive-post-date">03/10</span><a class="archive-post-title" href="/2019/03/10/最大公约数和最小公倍数问题/">最大公约数和最小公倍数问题</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/08</span><a class="archive-post-title" href="/2019/03/08/最大公约数和最小公倍数问题/">最大公约数和最小公倍数</a>
+            <span class="archive-post-date">03/10</span><a class="archive-post-title" href="/2019/03/10/Eclipse中所属不同包的类如何调用/">Eclipse中所属不同包的类如何调用</a>
         </li>
     
     

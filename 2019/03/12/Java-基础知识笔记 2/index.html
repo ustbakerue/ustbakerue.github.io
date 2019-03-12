@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="author" content="John Doe">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="John Doe">
+    
+    <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content>
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Java 基础知识笔记 2 · NORSHOGUN&#39;s BOOKRACK</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href="/assets/gc.ico">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js" as="script">
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">NORSHOGUN&#39;s BOOKRACK.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Java 基础知识笔记 2</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href="/">NORSHOGUN's BOOKRACK.</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post2.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            Java 基础知识笔记 2
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">2.1k</span>阅读时长: <span class="post-count reading-time">9 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/03/12</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><h2 id="定义方法"><a href="#定义方法" class="headerlink" title="定义方法"></a>定义方法</h2><ul>
+<li>定义方法的一般形式</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">修饰符	返回值类型	方法名（形式参数表）</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//	方法体；</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面是一个找例子</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">max</span><span class="params">(<span class="keyword">int</span> a , <span class="keyword">int</span> b)</span>	</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> result;</span><br><span class="line">    <span class="keyword">if</span>(a &gt; b)</span><br><span class="line">        result = a;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        result = b;</span><br><span class="line">    <span class="keyword">return</span> result;			        <span class="comment">//返回值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="调用方法"><a href="#调用方法" class="headerlink" title="调用方法"></a>调用方法</h2><p>仍旧以上面定义的方法为例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> z = max（x，y）；	<span class="comment">//max（）内是实际参数</span></span><br></pre></td></tr></table></figure>
+<h2 id="堆栈（call-stack）"><a href="#堆栈（call-stack）" class="headerlink" title="堆栈（call stack）"></a>堆栈（call stack）</h2><p>每当调用一个方法时，系统就会创建一个<em>活动记录</em>（<em>活动框架</em>），用以保存方法中的参数和变量。活动记录置于一个内存区域中，称为<em>调用堆栈</em>（call stack）。调用堆栈也称为<em>执行堆栈</em>、<em>运行堆栈</em>、或者一个<em>机器堆栈</em>，通常简称为“堆栈”。当一个方法调用另一个方法时，调用者的活动记录保持不动，一个新的活动记录被用于被调用的新方法。一个方法结束返回到调用者时，其相应的活动记录也被释放。</p>
+<p><img src="/2019/03/12/Java-基础知识笔记 2/堆栈.png" alt="堆栈"></p>
+<h2 id="重载"><a href="#重载" class="headerlink" title="重载"></a>重载</h2><p>Java依旧有重载机制，类比C++的机制，这里不在赘述。</p>
+<h2 id="生成随机字符"><a href="#生成随机字符" class="headerlink" title="生成随机字符"></a>生成随机字符</h2><p>每个字符都有唯一的在十六进制数0到FFFF之间的Unicode。配合random（）方法可以随机生成0~FFFF之间的整数。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">int</span>)Math.random()*(<span class="number">65535</span>+<span class="number">1</span>)；</span><br></pre></td></tr></table></figure>
+<p>参照这个方法，可以定义随机字符</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> (<span class="string">'a'</span> + Math.random()*(<span class="string">'z'</span>-<span class="string">'a'</span>+ <span class="number">1</span>))</span><br></pre></td></tr></table></figure>
+<p>同时也可以申城任意两个字符ch1和ch2之间的随机字符，其中要求ch1 &lt; ch2</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">char</span>)(ch1 + Math.random()*(ch2 - ch1 + <span class="number">1</span>))</span><br></pre></td></tr></table></figure>
+<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><h2 id="数组复制"><a href="#数组复制" class="headerlink" title="数组复制"></a>数组复制</h2><p>数组复制有三种方法</p>
+<ol>
+<li>使用循环语句逐个进行复制</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">copyArray1</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> [] a = &#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125;;</span><br><span class="line">		<span class="keyword">int</span> [] b = <span class="keyword">new</span> <span class="keyword">int</span> [a.length];</span><br><span class="line">		<span class="keyword">for</span>( <span class="keyword">int</span> i: a)</span><br><span class="line">		&#123;	</span><br><span class="line">			b[i] = a[i];</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>使用System类中的静态方法arraycopy()</li>
+</ol>
+<blockquote>
+<p>arraycopy () 方法存在于java.lang.System 类中</p>
+</blockquote>
+<p>arraycopy的语法如下<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">arraycopy(sourceArray, srcPos, targetArray, tarPos, length);</span><br><span class="line"><span class="comment">//srcPos 和 tarPos是源数组和目标数组的复制启示下标，length控制复制的长度</span></span><br><span class="line"><span class="comment">//arraycopy方法没有给目标数组分配内存空间。复制前必须创建目标数组并分配给它内存空间</span></span><br><span class="line"><span class="comment">//复制完成后，sourcArray和targetArray有相同的内容，但占有独立的内存空间</span></span><br></pre></td></tr></table></figure></p>
+<p>arraycopy使用的例子<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">copyArray2</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> [] a = &#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125;;</span><br><span class="line">	<span class="keyword">int</span> [] b = <span class="keyword">new</span> <span class="keyword">int</span> [a.length];</span><br><span class="line">	</span><br><span class="line">	System.arraycopy(a,<span class="number">4</span>,b,<span class="number">0</span>,<span class="number">3</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i : b )</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.print(i);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ol start="3">
+<li>使用clone方法复制数组</li>
+</ol>
+<h2 id="将数组传递给方法"><a href="#将数组传递给方法" class="headerlink" title="将数组传递给方法"></a>将数组传递给方法</h2><p>Java采用<em>按值传递</em>（pass-by-value)的方式将实参传递给方法。传递基本数据类型的值与传递数组值有很大的不同</p>
+<ul>
+<li>对于基本数据类型参数，传递的是实参的值</li>
+<li>对于数组类型参数，参数值是数组的引用，给方法传递的是这个引用</li>
+</ul>
+<h2 id="可变长参数列表"><a href="#可变长参数列表" class="headerlink" title="可变长参数列表"></a>可变长参数列表</h2><blockquote>
+<p>具有相同类型的可变长度的参数可以传递给方法，并将作为数组对待</p>
+</blockquote>
+<p>可以把类型相同但个数可变的参数传递给方法。方法中的 参数声明如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">typeName ... parameterName (类型名...参数名)</span><br></pre></td></tr></table></figure>
+<p>在方法声明中，指定类型后紧跟着省略号（…）。只能给方法中指定一个可变长参数，同时该参数必须是最后一个参数。任何常规参数必须在它之前。</p>
+<p>Java将可变长参数当成数组对待。可以讲一个数组或数目可变的参数传递给可变长参数。当用数目可变的参数调用方法时，Java会创建一个数组并把参数传给它。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">VarArray</span></span></span><br><span class="line"><span class="class"></span>&#123;	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">        printMax();</span><br><span class="line">		printMax(<span class="number">34</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">56.5</span>);</span><br><span class="line">		printMax(<span class="keyword">new</span> <span class="keyword">double</span>[] &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printMax</span><span class="params">(<span class="keyword">double</span>...numbers)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(numbers.length == <span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(<span class="string">"No argument passed"</span>);</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">double</span> result = numbers[<span class="number">0</span>];</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i&lt; numbers.length; i++)</span><br><span class="line">		<span class="keyword">if</span>(numbers[i] &gt; result)</span><br><span class="line">			result = numbers[i];</span><br><span class="line">		System.out.println(<span class="string">"The max value is "</span> + result);                                                                                                                                                                                                                                                                                                                                                                                                                  </span><br><span class="line">	&#125;</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
+<p>以上代码输出是</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">No argument passed</span><br><span class="line">The max value is <span class="number">56.5</span></span><br><span class="line">The max value is <span class="number">3.0</span></span><br></pre></td></tr></table></figure>
+<h2 id="数组的简单查找"><a href="#数组的简单查找" class="headerlink" title="数组的简单查找"></a>数组的简单查找</h2><h3 id="线性查找"><a href="#线性查找" class="headerlink" title="线性查找"></a>线性查找</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">LinearSearch</span><span class="params">(<span class="keyword">int</span> [] a , <span class="keyword">int</span> num)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(a.length == <span class="number">0</span>)</span><br><span class="line">			System.out.println(<span class="string">"ERROR"</span>);</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span> ; i&lt; a.length ; i++)</span><br><span class="line">				<span class="keyword">if</span>(a[i] == num)</span><br><span class="line">					&#123;</span><br><span class="line">					System.out.println(<span class="string">"Search the number,it's position is "</span> + i);</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">					&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public static int BinarySearch(int [] a , int num)</span><br><span class="line">&#123;</span><br><span class="line">	int left = 0;</span><br><span class="line">	int right = a.length-1;</span><br><span class="line">	while(left &lt;= right)</span><br><span class="line">	&#123;</span><br><span class="line">		int mid = (left + right)/2;</span><br><span class="line">		if(a[mid] &gt; num)</span><br><span class="line">			right = mid -1 ;</span><br><span class="line">		else if(a[mid] &lt; num) </span><br><span class="line">			left = mid + 1;</span><br><span class="line">		else if(a[mid] == num)</span><br><span class="line">			&#123;</span><br><span class="line">			return mid;</span><br><span class="line">			&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return -1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="数组的选择排序"><a href="#数组的选择排序" class="headerlink" title="数组的选择排序"></a>数组的选择排序</h2><pre><code>public static void SelectionSort(int [] a )
+    {
+        for(int i = 0 ; i&lt; a.length ; i++)
+        {
+            int min = i;
+            for(int j =i + 1; j&lt;a.length; j++)
+            {
+                if(a[i] &gt; a[j])
+                    {
+                    min = j;
+                    int temp = a[i];
+                    a[i] = a[j];
+                    a[j] =temp;
+                    }                    
+            }
+        }
+    }
+</code></pre><h2 id="Arrays-类"><a href="#Arrays-类" class="headerlink" title="Arrays 类"></a>Arrays 类</h2><p>java.util.Arrays类包含一些实用的方法用于常见的数组操作，比如排序和查找</p>
+<h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><p>可以使用sort或者parallelSort方法对整个数组或部分数组进行排序。</p>
+<blockquote>
+<p>pararllelSort()方法适用于多处理器的情况</p>
+</blockquote>
+<p>具体使用方法如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span>[] number = &#123;<span class="number">6.0</span>,<span class="number">4.4</span>,<span class="number">1.9</span>,<span class="number">2.9</span>,<span class="number">3.4</span>,<span class="number">3.5</span>&#125;;</span><br><span class="line">java.util.Arrays.sort(number);	<span class="comment">//sort the whole array</span></span><br><span class="line">java.util.Arrays.parallelSort(number);	<span class="comment">//sort the whole array</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> [] chars = &#123;<span class="string">'a'</span>,<span class="string">'A'</span>,<span class="string">'4'</span>,<span class="string">'F'</span>,<span class="string">'D'</span>,<span class="string">'P'</span>&#125;;	</span><br><span class="line">java.util.Arrays.sort(chars,<span class="number">1</span>,<span class="number">3</span>);	<span class="comment">//sort part of the array</span></span><br><span class="line">java.util.Arrays.parallelSort(chars,<span class="number">1</span>,<span class="number">3</span>)	<span class="comment">//sort part of the array</span></span><br></pre></td></tr></table></figure>
+<h3 id="二分查找（binarySearch方法）"><a href="#二分查找（binarySearch方法）" class="headerlink" title="二分查找（binarySearch方法）"></a>二分查找（binarySearch方法）</h3><ul>
+<li>使用该方法的前提是数组已经按照升序排好</li>
+<li>如果数组中不存在关键字，方法返回 - （插入点下标+1）</li>
+</ul>
+<p>具体例子见下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Arrays; </span><br><span class="line"><span class="keyword">int</span> [] list = &#123;<span class="number">2</span>,<span class="number">4</span>,<span class="number">7</span>,<span class="number">10</span>,<span class="number">11</span>,<span class="number">45</span>,<span class="number">50</span>,<span class="number">58</span>&#125;;</span><br><span class="line">Array.binarySearch(list,<span class="number">11</span>);</span><br><span class="line">Array.binarySearch(list,<span class="number">12</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Arrays; </span><br><span class="line"><span class="keyword">char</span> [] ch = &#123;<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>&#125;;</span><br><span class="line">Array.binarySearch(ch,<span class="string">'a'</span>);</span><br><span class="line">Array.binarySearch(ch,<span class="string">'d'</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="equals方法检测数组相等"><a href="#equals方法检测数组相等" class="headerlink" title="equals方法检测数组相等"></a>equals方法检测数组相等</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Arrays; </span><br><span class="line"><span class="keyword">int</span> a = &#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> b = &#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> c = &#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;;</span><br><span class="line">System.out.println(Arrays.equals(a,b));	</span><br><span class="line">System.out.println(Arrays.equals(a,c));</span><br></pre></td></tr></table></figure>
+<h3 id="fill方法填充数组或者部分数组"><a href="#fill方法填充数组或者部分数组" class="headerlink" title="fill方法填充数组或者部分数组"></a>fill方法填充数组或者部分数组</h3><p>下列代码将5填充到a中，将8填充到b[1]到b[5 -1]中</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Arrays; </span><br><span class="line"><span class="keyword">int</span> [] a = &#123;<span class="number">2</span>,<span class="number">4</span>,<span class="number">7</span>,<span class="number">10</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> [] b = &#123;<span class="number">2</span>,<span class="number">4</span>,<span class="number">7</span>,<span class="number">7</span>,<span class="number">7</span>,<span class="number">10</span>&#125;;</span><br><span class="line">Arrays.fill(a,<span class="number">5</span>);</span><br><span class="line">Arrays.fill(b,<span class="number">1</span>,<span class="number">5</span>,<span class="number">8</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="toString返回字符串"><a href="#toString返回字符串" class="headerlink" title="toString返回字符串"></a>toString返回字符串</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Arrays; </span><br><span class="line"><span class="keyword">int</span> [] a = &#123;<span class="number">2</span>,<span class="number">4</span>,<span class="number">7</span>,<span class="number">10</span>&#125;;</span><br><span class="line">System.out.println(Array.toString(a));</span><br></pre></td></tr></table></figure>
+<h2 id="命令行参数"><a href="#命令行参数" class="headerlink" title="命令行参数"></a>命令行参数</h2><ul>
+<li>main 方法具有String[]类型参数args，它是一个字符串数组</li>
+<li>main方法就像一个带参数的普通方法，可以通过传递实参来调用一个普通方法</li>
+</ul>
+<p>调用方式如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span> <span class="params">(String [] args)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        String[] strings = &#123;<span class="string">"New York"</span>, <span class="string">"Boston"</span>,<span class="string">"Atlanta"</span>&#125;;</span><br><span class="line">        TestMain.main(strings);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestMain</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i&lt; args.length; i++)</span><br><span class="line">            System.out.println(args[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="向main方法传递字符串"><a href="#向main方法传递字符串" class="headerlink" title="向main方法传递字符串"></a>向main方法传递字符串</h3><p>运行程序时，可以从命令行给main方法传递字符串参数。如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java TestMain arg0 arg1 arg2</span><br></pre></td></tr></table></figure>
+<p>当调用main方法时，Java解释器会创建一个数组存储命令行参数，然后将该数组的引用传递给args，如果调用n个参数的程序，Java解释权创建一个<strong>arg = new String[n]</strong>的数组，随后，Java解释器传递参数args去调用main方法。</p>
+<blockquote>
+<p>如果运行程序时没有传递字符串，那么使用new String[0]创建数组。在这种情况下，该数组是长度为0的空数组。args是对这个空数组的引用。因此，args不是null，但是args.length是0。</p>
+</blockquote>
+<p>例子，在Calculator包下定义Calculator类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Calculator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Calculator</span> </span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (args.length != <span class="number">3</span>)</span><br><span class="line">			System.exit(<span class="number">1</span>);</span><br><span class="line">		<span class="keyword">switch</span>(args[<span class="number">1</span>].charAt(<span class="number">0</span>))</span><br><span class="line">		&#123;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">'+'</span>:</span><br><span class="line">			System.out.println(args[<span class="number">0</span>] + <span class="string">" + "</span> + args[<span class="number">2</span>] + <span class="string">" = "</span> + (Integer.parseInt(args[<span class="number">0</span>])+Integer.parseInt(args[<span class="number">2</span>]) ));</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">'-'</span>:</span><br><span class="line">			System.out.println(args[<span class="number">0</span>] + <span class="string">" - "</span> + args[<span class="number">2</span>] + <span class="string">" = "</span> + (Integer.parseInt(args[<span class="number">0</span>])-Integer.parseInt(args[<span class="number">2</span>]) ));</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">'.'</span>:</span><br><span class="line">			System.out.println(args[<span class="number">0</span>] + <span class="string">" * "</span> + args[<span class="number">2</span>] + <span class="string">" = "</span> + (Integer.parseInt(args[<span class="number">0</span>])*Integer.parseInt(args[<span class="number">2</span>]) ));</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">'/'</span>:</span><br><span class="line">			System.out.println(args[<span class="number">0</span>] + <span class="string">" / "</span> + args[<span class="number">2</span>] + <span class="string">" = "</span> + (Integer.parseInt(args[<span class="number">0</span>])/Integer.parseInt(args[<span class="number">2</span>]) ));</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">			</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在test包下对Calculator进行调用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> test;</span><br><span class="line"><span class="keyword">import</span>  Calculator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestDemo</span> </span></span><br><span class="line"><span class="class"></span>&#123;	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span> <span class="params">(String [] args)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		String [] str  = &#123;<span class="string">"1"</span>,<span class="string">"+"</span>,<span class="string">"2"</span>&#125;;</span><br><span class="line">		Calculator.main(str);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h2><ul>
+<li>多维数组只需要记住一句话：“多维数组也是一维数组，只不过是<strong>数组的数组</strong>”</li>
+<li>Java中多维数组可以实现<strong>锯齿数组（ragged array）</strong>。如，二维数组的各行长度不同。</li>
+</ul>
+
+    </article>
+    <!-- license  -->
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2019/03/10/最大公约数和最小公倍数问题/" title="最大公约数和最小公倍数问题">
+                    <div class="prevTitle">最大公约数和最小公倍数问题</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:ustbakerue@163.com" class="iconfont-archer email" title="email"></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/ustbakerue" class="iconfont-archer github" target="_blank" title="github"></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title="wechat">
+                  
+                  <img class="profile-qr" src="/assets/wechat.png">
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#方法"><span class="toc-number">1.</span> <span class="toc-text">方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义方法"><span class="toc-number">1.1.</span> <span class="toc-text">定义方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#调用方法"><span class="toc-number">1.2.</span> <span class="toc-text">调用方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#堆栈（call-stack）"><span class="toc-number">1.3.</span> <span class="toc-text">堆栈（call stack）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重载"><span class="toc-number">1.4.</span> <span class="toc-text">重载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成随机字符"><span class="toc-number">1.5.</span> <span class="toc-text">生成随机字符</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数组"><span class="toc-number">2.</span> <span class="toc-text">数组</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数组复制"><span class="toc-number">2.1.</span> <span class="toc-text">数组复制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#将数组传递给方法"><span class="toc-number">2.2.</span> <span class="toc-text">将数组传递给方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#可变长参数列表"><span class="toc-number">2.3.</span> <span class="toc-text">可变长参数列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数组的简单查找"><span class="toc-number">2.4.</span> <span class="toc-text">数组的简单查找</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#线性查找"><span class="toc-number">2.4.1.</span> <span class="toc-text">线性查找</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二分查找"><span class="toc-number">2.4.2.</span> <span class="toc-text">二分查找</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数组的选择排序"><span class="toc-number">2.5.</span> <span class="toc-text">数组的选择排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Arrays-类"><span class="toc-number">2.6.</span> <span class="toc-text">Arrays 类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#排序"><span class="toc-number">2.6.1.</span> <span class="toc-text">排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二分查找（binarySearch方法）"><span class="toc-number">2.6.2.</span> <span class="toc-text">二分查找（binarySearch方法）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#equals方法检测数组相等"><span class="toc-number">2.6.3.</span> <span class="toc-text">equals方法检测数组相等</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fill方法填充数组或者部分数组"><span class="toc-number">2.6.4.</span> <span class="toc-text">fill方法填充数组或者部分数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#toString返回字符串"><span class="toc-number">2.6.5.</span> <span class="toc-text">toString返回字符串</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#命令行参数"><span class="toc-number">2.7.</span> <span class="toc-text">命令行参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#向main方法传递字符串"><span class="toc-number">2.7.1.</span> <span class="toc-text">向main方法传递字符串</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多维数组"><span class="toc-number">2.8.</span> <span class="toc-text">多维数组</span></a></li></ol></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 7
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/12</span><a class="archive-post-title" href="/2019/03/12/Java-基础知识笔记 2/">Java 基础知识笔记 2</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/10</span><a class="archive-post-title" href="/2019/03/10/最大公约数和最小公倍数问题/">最大公约数和最小公倍数问题</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/10</span><a class="archive-post-title" href="/2019/03/10/Eclipse中所属不同包的类如何调用/">Eclipse中所属不同包的类如何调用</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/07</span><a class="archive-post-title" href="/2019/03/07/String相关知识/">String相关知识</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/06</span><a class="archive-post-title" href="/2019/03/06/Java零碎知识/">Java零碎知识</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/27</span><a class="archive-post-title" href="/2019/02/27/Java基础知识笔记 1/">《Java核心技术》笔记1</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/25</span><a class="archive-post-title" href="/2019/02/25/markdown入门笔记/">Markdown 简单入门</a>
+        </li>
+    
+    </ul></div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="学习笔记"><span class="iconfont-archer">&#xe606;</span>学习笔记</span>
+    
+        <span class="sidebar-tag-name" data-tags="Eclipse"><span class="iconfont-archer">&#xe606;</span>Eclipse</span>
+    
+        <span class="sidebar-tag-name" data-tags="coding"><span class="iconfont-archer">&#xe606;</span>coding</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br>
+    1、请确保node版本大于6.2<br>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="Java"><span class="iconfont-archer">&#xe60a;</span>Java</span>
+    
+        <span class="sidebar-category-name" data-categories="Markdown"><span class="iconfont-archer">&#xe60a;</span>Markdown</span>
+    
+        <span class="sidebar-category-name" data-categories="DS"><span class="iconfont-archer">&#xe60a;</span>DS</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "John Doe"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+

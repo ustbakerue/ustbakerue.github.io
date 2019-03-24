@@ -346,93 +346,38 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/03/10/最大公约数和最小公倍数问题/">
+        <a class="abstract-title" href="/2019/03/24/数据挖掘第三章笔记/">
             
-                <span>最大公约数和最小公倍数问题</span>
+                <span>数据挖掘第三章笔记</span>
         </a>
         <div class="abstract-content">
-            最大公约数解决最大公约数问题一般使用辗转相除法(欧几里得算法)。欧几里得算法基于以下的定理：
-1设a、b均为正整数，则gcd(a,b) = gcd(b,a % b)
-容易联想到递归:
+            [TOC]
+数据预处理的目的
+数据如果要满足应用要求，那么它是高质量的。
 
-递归式： gcd（a，b） = gcd（b，a%b）
-递归边界： gcd（a， 0）= a
+数据质量包括：准确性、完整性、一致性、时效性、可信性和可解释性
 
-由此可以写出下列的代码
-123456789101112131415161718192021public class MaxCommonDivisor &#123;	public static int gcd (int a ,int b)	&#123;		if(b == 0)			return a;		else 	...
+数据预处理的目的就为了保证数据的质量
+
+数据预处理流程
+数据清理 (data cleaning)在数据库中的数据有一些是不完整的（有些感兴趣的属性缺少属性值），因此需要进行数据清理，将完整、正确、一致的数据信息存入数据仓库中。
+
+主要包括填写缺失的值，光滑噪声数据，识别或删除离群点
+
+数据集成 (data integration)把不同来源、格式、特点性质的数据在逻辑上或物理上有机地集中，实现数据共享
+
+主要是清除冗余，将数据由多个数据源合并成一个...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/10</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="coding">coding</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/07/String相关知识/">
-            
-                <span>String相关知识</span>
-        </a>
-        <div class="abstract-content">
-            String 类基本介绍String是Java库中一个预留的类，它不是基本类型，而是引用类型（referencen type）。
-
-把使用引用类型声明的变量称为引用变量
-
-12/*String基本声明方式*/String string = "Hello!";
-String 基本方法
-
-
-方法
-描述
-
-
-
-
-length（）
-返回字符数
-
-
-charAt（index）
-返回字符串s中指定位置的字符
-
-
-concat（s1）
-将本字符串和字符串s1连接，返回一个新字符串
-
-
-toUpperCase（）
-返回一个新字符串，其中所有的字母大写
-
-
-toLowerCase（）
-返回以新字符串，其中...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/07</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/24</span>
             </div>
             <!-- tags  -->
             
             <div class="abstract-tags">
     
         <a class="post-tag" href="javascript:void(0);" data-tags="学习笔记">学习笔记</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="coding">coding</a>
     
 </div>
             

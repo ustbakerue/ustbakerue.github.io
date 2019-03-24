@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Eclipse中所属不同包的类如何调用 · NORSHOGUN&#39;s BOOKRACK</title>
+    <title>数据挖掘第三章笔记 · NORSHOGUN&#39;s BOOKRACK</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/">NORSHOGUN&#39;s BOOKRACK.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">Eclipse中所属不同包的类如何调用</a>
+                <a href="#" class="post-name">数据挖掘第三章笔记</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Eclipse中所属不同包的类如何调用
+            数据挖掘第三章笔记
             <!-- 404 -->
             
         </h1>
@@ -268,18 +268,16 @@ height:50vh;
     
         <a class="post-tag" href="javascript:void(0);" data-tags="学习笔记">学习笔记</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="Eclipse">Eclipse</a>
-    
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">395</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">2k</span>阅读时长: <span class="post-count reading-time">6 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/03/10</span>
+                    <span class="post-intro-time">2019/03/24</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -403,15 +401,110 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>在某一包中定义了一个类，希望在另外一个包中使用它。</p>
-<p>如在包<em>Randomtest</em>定义了一个产生随机字符的类<em>RandomCharacter</em></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> RandomChar;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RandomCharacter</span> </span>&#123;</span><br><span class="line">	<span class="comment">/* Generatse a random character between ch1 and ch2 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">char</span> <span class="title">getRandomCharacter</span><span class="params">(<span class="keyword">char</span> ch1, <span class="keyword">char</span> ch2)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> ((ch1 - ch2) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">			<span class="keyword">char</span> ch = ch1;</span><br><span class="line">			ch1 = ch2;</span><br><span class="line">			ch2 = ch;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> (<span class="keyword">char</span>) (ch1 + Math.random() * (ch2 - ch1 + <span class="number">1</span>));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/* Generate a random lowercase letter */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">char</span> <span class="title">getRandomLowercase</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> (<span class="keyword">char</span>) (<span class="string">'a'</span> + Math.random() * (<span class="string">'z'</span> - <span class="string">'a'</span> + <span class="number">1</span>));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/* Generate a random uppercase letter */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">char</span> <span class="title">getRandomUppercase</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> (<span class="keyword">char</span>) (<span class="string">'A'</span> + Math.random() * (<span class="string">'Z'</span> - <span class="string">'A'</span> + <span class="number">1</span>));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/* Generate a random digit character */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">char</span> <span class="title">getRandomDigit</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> (<span class="keyword">char</span>) (<span class="string">'0'</span> + Math.random() * (<span class="string">'9'</span> - <span class="string">'0'</span> + <span class="number">1</span>));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/* Generate a random Character */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">char</span> <span class="title">getRandomCharacter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> (<span class="keyword">char</span>) (<span class="string">'\u0000'</span> + Math.random() * (<span class="string">'\uFFFF'</span> - <span class="string">'\u0000'</span> + <span class="number">1</span>));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>希望在<em>Randomtest</em>中调用<em>RandomCharacter</em>中的方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Randomtest;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RandomTest</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">char</span> ch = RandomCharacter.getRandomDigit();</span><br><span class="line">		System.out.println(ch);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="法1：直接方法"><a href="#法1：直接方法" class="headerlink" title="法1：直接方法"></a>法1：直接方法</h1><p>直接了当，将两个包复制在同一个工程中，直接在要使用的包中<em>import</em>即可。<br><img src="/2019/03/10/Eclipse中所属不同包的类如何调用/1.png" alt="1"><br>使用<em>包名.类名</em>的方式import即可。<br><img src="/2019/03/10/Eclipse中所属不同包的类如何调用/2.png" alt="2"></p>
-<h1 id="法2-生成jar包并导入"><a href="#法2-生成jar包并导入" class="headerlink" title="法2 生成jar包并导入"></a>法2 生成jar包并导入</h1><p>首先，学习如何由包生成jar包</p>
-<h2 id="生成jar包"><a href="#生成jar包" class="headerlink" title="生成jar包"></a>生成jar包</h2><p>在要生成的包上右键<br><img src="/2019/03/10/Eclipse中所属不同包的类如何调用/3.png" alt="3"><br>在java下选择<em>JAR file</em>，随后选择下一步。<br><img src="/2019/03/10/Eclipse中所属不同包的类如何调用/4.png" alt="4"><br>随后选择要打包的文件和要生成jar包的路径。<br><img src="/2019/03/10/Eclipse中所属不同包的类如何调用/5.png" alt="5"><br>随后选择<em>Finish</em>完成jar包生成。</p>
-<h2 id="使用jar包"><a href="#使用jar包" class="headerlink" title="使用jar包"></a>使用jar包</h2><p>选择要导入的工程，随后右键，选择<em>Build Path</em><br><img src="/2019/03/10/Eclipse中所属不同包的类如何调用/6.png" alt="6"><br>选择<em>Configure Build Path</em><br><img src="/2019/03/10/Eclipse中所属不同包的类如何调用/7.png" alt="7"><br>选择Libraries 项下的 <em>Add External  JARs</em><br><img src="/2019/03/10/Eclipse中所属不同包的类如何调用/8.png" alt="8"><br>选择要导入的jar包后，选择<em>Order and Export </em>，给要打的jar包打钩，点击应用即可。<br><img src="/2019/03/10/Eclipse中所属不同包的类如何调用/9.png" alt="9"><br>最后使用<em>包名.类名</em>的方式import即可。</p>
+        <p>[TOC]</p>
+<h1 id="数据预处理的目的"><a href="#数据预处理的目的" class="headerlink" title="数据预处理的目的"></a>数据预处理的目的</h1><ul>
+<li><p>数据如果要满足应用要求，那么它是高质量的。</p>
+</li>
+<li><p>数据质量包括：<strong>准确性</strong>、<strong>完整性</strong>、<strong>一致性</strong>、<strong>时效性</strong>、<strong>可信性</strong>和<strong>可解释性</strong></p>
+</li>
+<li>数据预处理的目的就为了保证数据的质量</li>
+</ul>
+<h1 id="数据预处理流程"><a href="#数据预处理流程" class="headerlink" title="数据预处理流程"></a>数据预处理流程</h1><p><img src="/2019/03/24/数据挖掘第三章笔记/预处理流程.png" alt="预处理流程"></p>
+<h2 id="数据清理-data-cleaning"><a href="#数据清理-data-cleaning" class="headerlink" title="数据清理 (data cleaning)"></a>数据清理 (data cleaning)</h2><p>在数据库中的数据有一些是不完整的（有些感兴趣的属性缺少属性值），因此需要进行数据清理，将完整、正确、一致的数据信息存入数据仓库中。</p>
+<blockquote>
+<p>主要包括填写缺失的值，光滑噪声数据，识别或删除离群点</p>
+</blockquote>
+<h2 id="数据集成-data-integration"><a href="#数据集成-data-integration" class="headerlink" title="数据集成 (data integration)"></a>数据集成 (data integration)</h2><p>把不同来源、格式、特点性质的数据在逻辑上或物理上有机地集中，实现数据共享</p>
+<blockquote>
+<p>主要是清除冗余，将数据由多个数据源合并成一个一致的数据存储，如数据仓库</p>
+</blockquote>
+<h2 id="数据归约-data-reduction"><a href="#数据归约-data-reduction" class="headerlink" title="数据归约 (data reduction)"></a>数据归约 (data reduction)</h2><p>通过聚集、删除冗余特征或聚类来降低数据规模</p>
+<blockquote>
+<p>包括维规约和数值规约</p>
+</blockquote>
+<h3 id="维规约"><a href="#维规约" class="headerlink" title="维规约"></a>维规约</h3><p>维规约中，使用数据编码方案，以便得到原始数据的简化或“压缩”表示。包括数据压缩技术（小波变换和主成分分析），属性子集选择（例如去掉不相关的属性）和属性构造（从原来的属性集导出更有用的小属性集）</p>
+<h3 id="数值归约"><a href="#数值归约" class="headerlink" title="数值归约"></a>数值归约</h3><p>使用参数模型（如回归和对数线性模型）或非参数模型（如直方图、聚类、抽样、数据聚集），用较小的表示取代数据</p>
+<h2 id="数据变换-data-transformation）"><a href="#数据变换-data-transformation）" class="headerlink" title="数据变换 (data transformation）"></a>数据变换 (data transformation）</h2><p>对数据进行平滑聚集、数据概化、规范化等方式的转换以便于处理</p>
+<h1 id="数据清理-data-cleaning-1"><a href="#数据清理-data-cleaning-1" class="headerlink" title="数据清理(data cleaning)"></a>数据清理(data cleaning)</h1><h2 id="数据清理的流程"><a href="#数据清理的流程" class="headerlink" title="数据清理的流程"></a>数据清理的流程</h2><p>第一步，发现偏差；第二步，纠正偏差。 </p>
+<blockquote>
+<p>偏差：缺失值，噪声，编码异常的数据</p>
+</blockquote>
+<h2 id="处理缺失值"><a href="#处理缺失值" class="headerlink" title="处理缺失值"></a>处理缺失值</h2><ul>
+<li><strong>忽略元组</strong>：缺失类标号时通常这样做</li>
+<li><strong>人工填写缺失值</strong>：费时，数据集很大，缺失很多值时不适用</li>
+<li><p><strong>使用全局常量填充缺失值</strong></p>
+</li>
+<li><p><strong>使用属性中心度量（均值或中位数）填充缺失值</strong></p>
+</li>
+<li><strong>使用最可能的值填充缺失值</strong>：<strong>用回归、贝叶斯推论来补充缺失值</strong></li>
+</ul>
+<h2 id="去噪"><a href="#去噪" class="headerlink" title="去噪"></a>去噪</h2><p>常用的去噪方法是噪声平滑方法(data polishing)和噪声过滤(data filters) 。噪声平滑常见方法是分箱法，噪声过滤常见方法是回归和离群点分析</p>
+<h3 id="分箱法（binning）"><a href="#分箱法（binning）" class="headerlink" title="分箱法（binning）"></a>分箱法（binning）</h3><p>分箱采用的是近邻的思想</p>
+<ul>
+<li>若有一堆排序后的数据：4，8，15，21，21，24，25，28，34</li>
+</ul>
+<p><img src="/2019/03/24/数据挖掘第三章笔记/分箱法.png" alt="分箱法"></p>
+<h3 id="回归（regression）"><a href="#回归（regression）" class="headerlink" title="回归（regression）"></a>回归（regression）</h3><p>用一个函数拟合数据来光滑数据。</p>
+<h3 id="离群点分析（outlier-analysis）"><a href="#离群点分析（outlier-analysis）" class="headerlink" title="离群点分析（outlier analysis）"></a>离群点分析（outlier analysis）</h3><p>通过聚类来检测离群点。聚类将类似的值组织成群或“簇”。直观地，落在簇集合之外的值被视为离群点。</p>
+<p><img src="/2019/03/24/数据挖掘第三章笔记/离群点.png" alt="离群点"></p>
+<h1 id="数据集成"><a href="#数据集成" class="headerlink" title="数据集成"></a>数据集成</h1><p><img src="/2019/03/24/数据挖掘第三章笔记/数据集成.png" alt="数据集成"></p>
+<p>数据集成：合并来自多个数据存储的数据形成数据仓库</p>
+<p>正确的数据集成有助于减少结果数据集的冗余和不一致，有助于提高对数据处理的准确性和速度</p>
+<p>该部分主要涉及数据的选择、数据的冲突问题以及不一致数据的处理问题 </p>
+<h2 id="实体识别问题"><a href="#实体识别问题" class="headerlink" title="实体识别问题"></a>实体识别问题</h2><p>数据语义的多样性是数据集成面临的巨大挑战。</p>
+<p>实体识别问题：如何匹配多个数据源的模式和对象。 例如，两个数据库中，名字相同的字段可能代表的是两个不同的数据；又比如，两个名字不同的字段可能代表的又是一个相同的数据。诸如此类的问题，都是需要在数据集成中解决的。 实际上，我认为关于实体识别的问题会牵扯到NLP的问题，要规避这个问题最好的做法是在前期生成数据之时就严格按照规矩来，这里数据清理方便，数据集成也方便。</p>
+<h2 id="冗余问题"><a href="#冗余问题" class="headerlink" title="冗余问题"></a>冗余问题</h2><ul>
+<li><p>一个属性如果能由另一个或一组属性“导出”，则这个属性可能是冗余的。</p>
+</li>
+<li><p>比如，在数据库中，我们存储了性别，生日，地址，身份证号等属性。但实际上我们知道，只要晓得了身份证号，其他几个都是能够被“导出”的。因此，我们认为性别，生日，地址这些属性是冗余的。</p>
+</li>
+<li><p>检测数据是否冗余我们可以通过<strong>相关分析</strong>来检测到。 这里的相关分析实际上就是分析两个属性之间的包含性，如果包含性越高 ，就意味着一个属性能够被另一个属性导出，那么这个属性就是冗余的，我们需要对它进行处理。 </p>
+</li>
+<li><p>对于标称数据可以使用卡方检验。对于数值属性，使用相关系数（correlation coefficient）和协方差（convariance）</p>
+</li>
+</ul>
+<h2 id="数据值在冲突的检测与处理"><a href="#数据值在冲突的检测与处理" class="headerlink" title="数据值在冲突的检测与处理"></a>数据值在冲突的检测与处理</h2><ul>
+<li><p>来自不同数据源的属性值可能不同</p>
+</li>
+<li><p>可能是因为表示、尺度或编码不同导致的</p>
+</li>
+<li>例如英制单位和公制单位</li>
+</ul>
+<h1 id="数据归约"><a href="#数据归约" class="headerlink" title="数据归约"></a>数据归约</h1><p>数据归约就是指在尽可能保持数据原貌的前提下，最大限度地精简数据量。其中数据归约具体使用的策略包括维归约，数量归约和数据压缩</p>
+<h2 id="维归约-dimensionality-reduction"><a href="#维归约-dimensionality-reduction" class="headerlink" title="维归约(dimensionality reduction)"></a>维归约(dimensionality reduction)</h2><ul>
+<li>维归约的主要策略就是减少所考虑的随机变量或属性的个数。</li>
+<li>具体技术包括：<ul>
+<li>小波变换（把原数据变换或投影到较小的空间）</li>
+<li>主成分分析（把原数据变换或投影到较小的空间）</li>
+<li>属性子集选择/特征子集选择（其中不相关、弱相关或冗余的属性（或维）被检测和删除）</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2019/03/24/数据挖掘第三章笔记/属性子集选择.png" alt="属性子集选择"></p>
+<h2 id="数量规约-numerosity-reduction"><a href="#数量规约-numerosity-reduction" class="headerlink" title="数量规约(numerosity reduction)"></a>数量规约(numerosity reduction)</h2><p>数量归约就是用替代的、较小的数据表示形式替换原数据。</p>
+<p>具体分为参数方法和非参数方法。</p>
+<ul>
+<li>参数方法：回归、对数-线性模型</li>
+<li>非参数方法：直方图、聚类、抽样、数据立方体聚集</li>
+</ul>
+<h2 id="数据压缩-date-compression"><a href="#数据压缩-date-compression" class="headerlink" title="数据压缩(date compression)"></a>数据压缩(date compression)</h2><p>使用变换，以便得到原数据的规约或”压缩“表示。</p>
+<p>如果原数据能够从压缩后的数据重构，而不损失讯息，则数据规约称为无损的。如果只能近似的重构原数据，则该数据归约称为有损的。 </p>
+<h1 id="数据变换"><a href="#数据变换" class="headerlink" title="数据变换"></a>数据变换</h1><p>数据变换的意思是将数据变换成统一的格式。而数据离散化是一种数据变换形式。</p>
+<p>数据变换可以采用的策略：</p>
+<ul>
+<li>光滑：去掉噪声数据。具体包括分箱、回归、聚类</li>
+<li>属性构造：由给定的属性构造出新的属性并添加到属性集中（如前面说的地址，性别，生日可以构造成身份证）</li>
+<li>聚集：对数据进行汇总或聚集 （如可以聚集每天的数据，来计算每个星期，每个月的数据。实际上，我们应该很容易与数据立方体联想到一起。上钻操作正好就是聚集的一种体现。）</li>
+<li>规范化：把属性按比例进行缩放</li>
+<li>离散化：离散化就是在不改变数据相对大小的情况下，对数据进行相应的缩小。<ul>
+<li>离散化可以根据如何进行离散化加以分类。根据是否使用类信息，可以分为监督的离散化或者非监督的离散化，根据离散化的方向分为自顶向下或自底向上</li>
+</ul>
+</li>
+<li><p><img src="/2019/03/24/数据挖掘第三章笔记/离散化.png" alt="离散化"></p>
+</li>
+<li><p>由标称数据产生概念分层：属性，如street，可以泛化到较高的概念层，如city、country。</p>
+</li>
+</ul>
 
     </article>
     <!-- license  -->
@@ -420,17 +513,12 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href="/2019/03/10/最大公约数和最小公倍数问题/" title="最大公约数和最小公倍数问题">
-                    <div class="nextTitle">最大公约数和最小公倍数问题</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/2019/03/07/String相关知识/" title="String相关知识">
-                    <div class="prevTitle">String相关知识</div>
+                <a href="/2019/03/20/python快速入门1/" title="python快速入门 1">
+                    <div class="prevTitle">python快速入门 1</div>
                 </a>
             
         </li>
@@ -549,7 +637,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#问题描述"><span class="toc-number">1.</span> <span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#法1：直接方法"><span class="toc-number">2.</span> <span class="toc-text">法1：直接方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#法2-生成jar包并导入"><span class="toc-number">3.</span> <span class="toc-text">法2 生成jar包并导入</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#生成jar包"><span class="toc-number">3.1.</span> <span class="toc-text">生成jar包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用jar包"><span class="toc-number">3.2.</span> <span class="toc-text">使用jar包</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据预处理的目的"><span class="toc-number">1.</span> <span class="toc-text">数据预处理的目的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据预处理流程"><span class="toc-number">2.</span> <span class="toc-text">数据预处理流程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据清理-data-cleaning"><span class="toc-number">2.1.</span> <span class="toc-text">数据清理 (data cleaning)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据集成-data-integration"><span class="toc-number">2.2.</span> <span class="toc-text">数据集成 (data integration)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据归约-data-reduction"><span class="toc-number">2.3.</span> <span class="toc-text">数据归约 (data reduction)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#维规约"><span class="toc-number">2.3.1.</span> <span class="toc-text">维规约</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数值归约"><span class="toc-number">2.3.2.</span> <span class="toc-text">数值归约</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据变换-data-transformation）"><span class="toc-number">2.4.</span> <span class="toc-text">数据变换 (data transformation）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据清理-data-cleaning-1"><span class="toc-number">3.</span> <span class="toc-text">数据清理(data cleaning)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据清理的流程"><span class="toc-number">3.1.</span> <span class="toc-text">数据清理的流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#处理缺失值"><span class="toc-number">3.2.</span> <span class="toc-text">处理缺失值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#去噪"><span class="toc-number">3.3.</span> <span class="toc-text">去噪</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#分箱法（binning）"><span class="toc-number">3.3.1.</span> <span class="toc-text">分箱法（binning）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#回归（regression）"><span class="toc-number">3.3.2.</span> <span class="toc-text">回归（regression）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#离群点分析（outlier-analysis）"><span class="toc-number">3.3.3.</span> <span class="toc-text">离群点分析（outlier analysis）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据集成"><span class="toc-number">4.</span> <span class="toc-text">数据集成</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#实体识别问题"><span class="toc-number">4.1.</span> <span class="toc-text">实体识别问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#冗余问题"><span class="toc-number">4.2.</span> <span class="toc-text">冗余问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据值在冲突的检测与处理"><span class="toc-number">4.3.</span> <span class="toc-text">数据值在冲突的检测与处理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据归约"><span class="toc-number">5.</span> <span class="toc-text">数据归约</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#维归约-dimensionality-reduction"><span class="toc-number">5.1.</span> <span class="toc-text">维归约(dimensionality reduction)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数量规约-numerosity-reduction"><span class="toc-number">5.2.</span> <span class="toc-text">数量规约(numerosity reduction)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据压缩-date-compression"><span class="toc-number">5.3.</span> <span class="toc-text">数据压缩(date compression)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据变换"><span class="toc-number">6.</span> <span class="toc-text">数据变换</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>

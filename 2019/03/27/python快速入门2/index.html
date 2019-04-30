@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>NORSHOGUN&#39;s BOOKRACK</title>
+    <title>python快速入门2 · NORSHOGUN&#39;s BOOKRACK</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -77,6 +77,8 @@
 
     <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
@@ -201,14 +203,23 @@
 </head>
 
     
-        <body class="home-body">
+        <body class="post-body">
     
     
-<header class="header index-header">
+<header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">NORSHOGUN&#39;s BOOKRACK.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">python快速入门2</a>
+            </div>
+    </div>
     
     <a class="home-link" href="/">NORSHOGUN's BOOKRACK.</a>
 </header>
@@ -227,17 +238,17 @@ height:50vh;
     <!-- 主页  -->
     
     
-    <!-- 文章页  -->
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/post.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post2.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            NORSHOGUN's BOOKRACK.
-            <!-- 文章页  -->
+            python快速入门2
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
@@ -245,12 +256,49 @@ height:50vh;
             <!-- 主页副标题  -->
             
             
-                learning & recording
-            
-            <!-- 文章页  -->
+            <!-- 404 -->
             
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class="post-intro-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="学习笔记">学习笔记</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">633</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/03/27</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -351,520 +399,93 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/27/python快速入门2/">
-            
-                <span>python快速入门2</span>
-        </a>
-        <div class="abstract-content">
-            函数
-python函数声明和调用和其他语言类似，区别不同的是没有括号，采用缩进的方式。示例如下：
-  12def xxx(parameter):   	statement
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><ul>
+<li><p>python函数声明和调用和其他语言类似，区别不同的是没有括号，采用缩进的方式。示例如下：</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">xxx</span><span class="params">(parameter)</span>:</span></span><br><span class="line">   	statement</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果要定义一个空函数，这里要使用<em>pass</em>关键字。pass起占位符的作用，该关键字也可以使用在条件语句中。</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">xxx</span><span class="params">()</span>:</span></span><br><span class="line">   	<span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> condition:</span><br><span class="line">   	<span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>python的return可以返回多个值，其本质是返回的tuple</p>
+</li>
+</ul>
+<h1 id="切片-amp-迭代-amp-列表生成式-amp-生成器"><a href="#切片-amp-迭代-amp-列表生成式-amp-生成器" class="headerlink" title="切片&amp;迭代&amp;列表生成式&amp;生成器"></a>切片&amp;迭代&amp;列表生成式&amp;生成器</h1><h2 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h2><ul>
+<li><p>python元素的引用除了使用传统的下标方式也可以使用切片（Slice）操作符。如</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">L = [<span class="string">'A'</span>,<span class="string">'B'</span>,<span class="string">'C'</span>]</span><br><span class="line">L[<span class="number">0</span>:<span class="number">2</span>]	//引用了前两个元素</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>如果从开头引用，也可以省略第一个下标，也可使用负坐标从后往前引用</p>
+</blockquote>
+<h2 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h2><ul>
+<li><p>迭代使用<em>for…in</em>的形式</p>
+</li>
+<li><p>如何判断可以迭代？</p>
+<p>使用collections模块中的<em>Iterable</em>,配合isinstance</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Iterable</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>isinstance(<span class="string">'abc'</span>, Iterable) <span class="comment"># str是否可迭代</span></span><br><span class="line"><span class="keyword">True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>isinstance([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>], Iterable) <span class="comment"># list是否可迭代</span></span><br><span class="line"><span class="keyword">True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>isinstance(<span class="number">123</span>, Iterable) <span class="comment"># 整数是否可迭代</span></span><br><span class="line"><span class="keyword">False</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>python中的引用均可以同时引用多个值</p>
+</li>
+</ul>
+<h2 id="列表生成式"><a href="#列表生成式" class="headerlink" title="列表生成式"></a>列表生成式</h2><p>列表生成式是在迭代的基础上进行的，同时也可以加入条件判断，见下面的例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>[x * x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">11</span>) <span class="keyword">if</span> x % <span class="number">2</span> == <span class="number">0</span>]</span><br><span class="line">[<span class="number">4</span>, <span class="number">16</span>, <span class="number">36</span>, <span class="number">64</span>, <span class="number">100</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>[m + n <span class="keyword">for</span> m <span class="keyword">in</span> <span class="string">'ABC'</span> <span class="keyword">for</span> n <span class="keyword">in</span> <span class="string">'XYZ'</span>]</span><br><span class="line">[<span class="string">'AX'</span>, <span class="string">'AY'</span>, <span class="string">'AZ'</span>, <span class="string">'BX'</span>, <span class="string">'BY'</span>, <span class="string">'BZ'</span>, <span class="string">'CX'</span>, <span class="string">'CY'</span>, <span class="string">'CZ'</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h2><h3 id="定义法1"><a href="#定义法1" class="headerlink" title="定义法1"></a>定义法1</h3><ul>
+<li>只需要把列表生成式的 ‘[ ]‘换成’()’即可声明生成器</li>
+<li>可以不断调用next()生成生成器的元素，也可以使用for循环</li>
+</ul>
+<h3 id="定义法2"><a href="#定义法2" class="headerlink" title="定义法2"></a>定义法2</h3><ul>
+<li>在函数定义中包含yield关键字，见下面的例子：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(max)</span>:</span></span><br><span class="line">    n, a, b = <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> n &lt; max:</span><br><span class="line">        <span class="keyword">yield</span> b</span><br><span class="line">        a, b = b, a + b</span><br><span class="line">        n = n + <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'done'</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>generator和函数的执行流程不一样。函数是顺序执行，遇到return语句或者最后一行函数语句就返回。而变成generator的函数，在每次调用next()的时候执行，遇到yield语句返回，再次执行时从上次返回的yield语句处继续执行。</p>
+</blockquote>
+<h2 id="可迭代对象-Iterable-和迭代器-Iterator"><a href="#可迭代对象-Iterable-和迭代器-Iterator" class="headerlink" title="可迭代对象(Iterable)和迭代器(Iterator)"></a>可迭代对象(Iterable)和迭代器(Iterator)</h2><ul>
+<li><p>凡是可作用于for循环的对象都是Iterable类型；</p>
+</li>
+<li><p>凡是可作用于next()函数的对象都是Iterator类型，它们表示一个惰性计算的序列；</p>
+</li>
+<li><p>集合数据类型如list、dict、str等是Iterable但不是Iterator，不过可以通过iter()函数获得一个Iterator对象</p>
+</li>
+</ul>
 
-如果要定义一个空函数，这里要使用pass关键字。pass起占位符的作用，该关键字也可以使用在条件语句中。
-  12def xxx():   	pass
-  12if condition:   	pass
-
-python的return可以返回多个值，其本质是返回的tuple
-
-
-切片&amp;迭代&amp;列表生成式&amp;生成器切片
-python元素的引用除了使用传统的下标方式也可以使用切片（Slice）操作符。如...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/27</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="学习笔记">学习笔记</a>
-    
-</div>
-            
-        </div>
     </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/24/数据挖掘第三章笔记/">
-            
-                <span>数据挖掘第三章笔记</span>
-        </a>
-        <div class="abstract-content">
-            数据预处理的目的
-数据如果要满足应用要求，那么它是高质量的。
-
-数据质量包括：准确性、完整性、一致性、时效性、可信性和可解释性
-
-数据预处理的目的就为了保证数据的质量
-
-数据预处理流程
-数据清理 (data cleaning)在数据库中的数据有一些是不完整的（有些感兴趣的属性缺少属性值），因此需要进行数据清理，将完整、正确、一致的数据信息存入数据仓库中。
-
-主要包括填写缺失的值，光滑噪声数据，识别或删除离群点
-
-数据集成 (data integration)把不同来源、格式、特点性质的数据在逻辑上或物理上有机地集中，实现数据共享
-
-主要是清除冗余，将数据由多个数据源合并成一个一致的数据存...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/24</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="学习笔记">学习笔记</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/20/python快速入门1/">
-            
-                <span>python快速入门 1</span>
-        </a>
-        <div class="abstract-content">
-            规定&amp;杂项如果字符串里面有很多字符都需要转义，就需要加很多\，为了简化，允许使用r’’表示内部的字符串默认不转义
-1print(r'\\\t\\')
-输出是：
-1\\\t\\
-
-
-如果字符串内部有很多换行，用’’’…’’’的格式表示多行内容
-
-12345print('''line1...line2...line3''')
-
-…为命令行中回车换行后自动生成，在IDE中直接回车即可
-
-输出是：
-12345line1line2line3
-
-python中布尔值: True , False
-布尔运算符: and, or ,not
-python中的空值用None表示
-
-地板除（取整） //...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/20</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="学习笔记">学习笔记</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/12/Java基础知识笔记 2/">
-            
-                <span>Java 基础知识笔记 2</span>
-        </a>
-        <div class="abstract-content">
-            方法定义方法
-定义方法的一般形式
-
-1234修饰符	返回值类型	方法名（形式参数表）&#123;	//	方法体；&#125;
-下面是一个找例子
-123456789public static int max(int a , int b)	&#123;    int result;    if(a &gt; b)        result = a;    else        result = b;    return result;			        //返回值&#125;
-调用方法仍旧以上面定义的方法为例
-1int z = max（x，y）；	//max（）内是实际参数
-堆栈（ca...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/12</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="学习笔记">学习笔记</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/10/最大公约数和最小公倍数问题/">
-            
-                <span>最大公约数和最小公倍数问题</span>
-        </a>
-        <div class="abstract-content">
-            最大公约数解决最大公约数问题一般使用辗转相除法(欧几里得算法)。欧几里得算法基于以下的定理：
-1设a、b均为正整数，则gcd(a,b) = gcd(b,a % b)
-容易联想到递归:
-
-递归式： gcd（a，b） = gcd（b，a%b）
-递归边界： gcd（a， 0）= a
-
-由此可以写出下列的代码
-123456789101112131415161718192021public class MaxCommonDivisor &#123;	public static int gcd (int a ,int b)	&#123;		if(b == 0)			return a;		else 	...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/10</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="coding">coding</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/10/Eclipse中所属不同包的类如何调用/">
-            
-                <span>Eclipse中所属不同包的类如何调用</span>
-        </a>
-        <div class="abstract-content">
-            问题描述在某一包中定义了一个类，希望在另外一个包中使用它。
-如在包Randomtest定义了一个产生随机字符的类RandomCharacter
-1234567891011121314151617181920212223242526272829303132package RandomChar;public class RandomCharacter &#123;	/* Generatse a random character between ch1 and ch2 */	public static char getRandomCharacter(char ch1, char ch2) &#...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/10</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="学习笔记">学习笔记</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Eclipse">Eclipse</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/07/String相关知识/">
-            
-                <span>String相关知识</span>
-        </a>
-        <div class="abstract-content">
-            String 类基本介绍String是Java库中一个预留的类，它不是基本类型，而是引用类型（referencen type）。
-
-把使用引用类型声明的变量称为引用变量
-
-12/*String基本声明方式*/String string = "Hello!";
-String 基本方法
-
-
-方法
-描述
-
-
-
-
-length（）
-返回字符数
-
-
-charAt（index）
-返回字符串s中指定位置的字符
-
-
-concat（s1）
-将本字符串和字符串s1连接，返回一个新字符串
-
-
-toUpperCase（）
-返回一个新字符串，其中所有的字母大写
-
-
-toLowerCase（）
-返回以新字符串，其中...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/07</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="学习笔记">学习笔记</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="coding">coding</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/06/Java零碎知识/">
-            
-                <span>Java零碎知识</span>
-        </a>
-        <div class="abstract-content">
-            SuppressWarnings()阻止警告的意思，用以消除编码中可能出现的警告。12/*单抑制的例子*/@SuppressWarnings("resource")  //用以抑制资源泄露，如使用io类最后没用关闭
-获取毫秒数12/*返回当前时间*/System.out.currentTimeMillis();  //这样获取的时间单位是毫秒，其数值需要存储在long型变量中，若要获取秒数，需要除以1000
-int型可存储的范围1-2147483648 ~ 2147483647   //超过这个范围的数值需要使用long型
-获取随机数123456789101112131415161718...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/06</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="学习笔记">学习笔记</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/27/Java基础知识笔记 1/">
-            
-                <span>Java基础知识笔记 1</span>
-        </a>
-        <div class="abstract-content">
-            简单java应用程序1234567public class Example	//类声明&#123;	public static void main(String[] args)    //main方法声明，必须声明为public	&#123;		System.out.println("This is my first Java program");	//方法	&#125;&#125;
-基础知识
-Java 区分大小写
-输出
-
-12System.out.println()	// 输出以后并换行System.out.print()	//输出以后不换行
-
-数据类型
-
-
-
-
-类型
-存储需求
-有效位...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/27</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="学习笔记">学习笔记</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/25/markdown入门笔记/">
-            
-                <span>Markdown 简单入门</span>
-        </a>
-        <div class="abstract-content">
-            什么是MarkdownMarkdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。简单来说Markdown是可以快速排版的文档编辑器，而我们可以使用它来编写自己的技术文档和博客。
-Markdown 基本语法标题123# 一级标题   ## 二级标题### 如此类推
-列表无序列表123* 列表1* 列表2	*列表3
-有序列表12341. 列表12. 列表23. 列表3	1.列表4
-引用1&gt; 引用
-分割线连字符-，星号*，下划线_三个或三个以上均可。123---***___
-代码块及高亮直接在自己的代码上下各添加三个`即可。同时也...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/25</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="学习笔记">学习笔记</a>
-    
-</div>
-            
-        </div>
-    </article>
+    <!-- license  -->
     
     <!-- paginator  -->
-    
-</main>
-            <!-- profile -->
+    <ul class="post-paginator">
+        <li class="next">
             
-            <div class="profile">
-    <img class="profile-avatar" alt="avatar" src="/avatar/norshogun.jpg">
-    <div class="profile-name">norshogun</div>
-    
-    <div class="profile-signature">
-        try &amp; get
-    </div>
-    
-    
-    <div class="profile-social">
-        
-    
-        
+        </li>
+        <li class="previous">
             
-                <a href="mailto:ustbakerue@163.com" class="iconfont-archer email" title="email"></a>
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2019/03/24/数据挖掘第三章笔记/" title="数据挖掘第三章笔记">
+                    <div class="prevTitle">数据挖掘第三章笔记</div>
+                </a>
             
-        
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
-        
-            
-                <a href="//github.com/ustbakerue" class="iconfont-archer github" target="_blank" title="github"></a>
-            
-        
     
-        
-            
-                <span class="iconfont-archer wechat" title="wechat">
-                  
-                  <img class="profile-qr" src="/assets/wechat.png">
-                </span>
-            
-        
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
     
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
     
 
-    </div>
-    
-    
-        <div class="friends">
-            <div>FRIENDS</div>
-            
-                
-                    <span>
-                        <a href="//www.baidu.com" target="_black">friendA</a>
-                    </span>
-                
-            
-                
-                    <span>
-                        <a href="//www.google.com" target="_black">friendB</a>
-                    </span>
-                
-            
-                
-            
-        </div>
-    
-    
-        <div class="about-me">
-            <a href="/about">ABOUT ME</a>
-        </div>
-    
-</div>
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
             
         </div>
         <footer class="footer footer-unloaded">
@@ -947,6 +568,24 @@ Markdown 基本语法标题123# 一级标题   ## 二级标题### 如此类推
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#函数"><span class="toc-number">1.</span> <span class="toc-text">函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#切片-amp-迭代-amp-列表生成式-amp-生成器"><span class="toc-number">2.</span> <span class="toc-text">切片&amp;迭代&amp;列表生成式&amp;生成器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#切片"><span class="toc-number">2.1.</span> <span class="toc-text">切片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#迭代"><span class="toc-number">2.2.</span> <span class="toc-text">迭代</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#列表生成式"><span class="toc-number">2.3.</span> <span class="toc-text">列表生成式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成器"><span class="toc-number">2.4.</span> <span class="toc-text">生成器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义法1"><span class="toc-number">2.4.1.</span> <span class="toc-text">定义法1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#定义法2"><span class="toc-number">2.4.2.</span> <span class="toc-text">定义法2</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#可迭代对象-Iterable-和迭代器-Iterator"><span class="toc-number">2.5.</span> <span class="toc-text">可迭代对象(Iterable)和迭代器(Iterator)</span></a></li></ol></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1234,6 +873,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
